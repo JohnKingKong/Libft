@@ -1,42 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jvigneau <jvigneau@student.42quebec.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/16 21:52:52 by jvigneau          #+#    #+#             */
-/*   Updated: 2021/09/17 01:20:46 by jvigneau         ###   ########.fr       */
+/*   Created: 2021/09/17 00:48:46 by jvigneau          #+#    #+#             */
+/*   Updated: 2021/09/17 01:14:34 by jvigneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// ecrire une fct qui reproduit a lidentique la fct strlcpy
+//ecrire une fct qui reproduit a lidentique la fct strlcpy
 
 #include <stddef.h>
 
-size_t	ft_strlcat(char *dest, const char *src, size_t size);
+size_t	ft_strlcpy(char *dst, const char *src, size_t size);
 size_t	ft_strlen(const char *s);
 
-size_t	ft_strlcat(char *dest, const char *src, size_t size)
+size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 {
 	size_t	i;
-	size_t	j;
 	size_t	k;
-	size_t	l;
-
 
 	i = 0;
-	j = 0;
-	while(dest[j])
-		j++;
-	k = ft_strlen(dest);
-	l = ft_strlen(src);
-	while (src[i] && ((k + i) + 1) < size)
+	if ((size <= 0) || (dst[i] == '\0') || src[i] == '\0')
+		return  (0);
+	k = ft_strlen(src);
+	while (src[i] &&  (i + 1) < size)
 	{
-		dest[j] = src[i];
-		j++;
+		dst[i] = src[i];
 		i++;
 	}
-	dest[j] = '\0';
-	return (k + l);
+	dst[i] = '\0';
+	return (k);
 }

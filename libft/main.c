@@ -6,7 +6,7 @@
 /*   By: jvigneau <jvigneau@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/14 12:57:46 by jvigneau          #+#    #+#             */
-/*   Updated: 2021/09/17 00:22:39 by jvigneau         ###   ########.fr       */
+/*   Updated: 2021/09/17 01:45:41 by jvigneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,20 +15,21 @@
 #include <bsd/string.h>
 #include <stddef.h>
 
-int             ft_isalpha(int c);
-int             ft_isdigit(int c);
-int             ft_isalnum(int c);
-int             ft_isascii(int c);
-int             ft_isprint(int c);
-unsigned long   ft_strlen(const char *s);
-void            *ft_memset(void *b, int c, size_t len);
-void            ft_bzero(void *s, size_t n);
-void            *ft_memcpy(void *restrict dst, const void *restrict src, size_t n);
-void            *ft_memmove(void *dst, const void *src, size_t len);
-int				ft_toupper(int c);
-int				ft_tolower(int c);
-size_t			ft_strlcat(char *dest, const char *src, size_t size);
-
+int		ft_isalpha(int c);
+int		ft_isdigit(int c);
+int		ft_isalnum(int c);
+int		ft_isascii(int c);
+int		ft_isprint(int c);
+size_t	ft_strlen(const char *s);
+void	*ft_memset(void *b, int c, size_t len);
+void	ft_bzero(void *s, size_t n);
+void	*ft_memcpy(void *restrict dst, const void *restrict src, size_t n);
+void	*ft_memmove(void *dst, const void *src, size_t len);
+int		ft_toupper(int c);
+int		ft_tolower(int c);
+size_t	ft_strlcat(char *dest, const char *src, size_t size);
+size_t	ft_strlcpy(char *dst, const char *src, size_t size);
+char	*ft_strchr(const char *s, int c);
 
 int main(void)
 {
@@ -39,8 +40,8 @@ int main(void)
   //  int c = '\t';
   //  char s[] = "123456789";
   //  cthar x[] = "asdasdadas";
-  //  char q[] = "YOLO";
-  //  char p[] = "oh noi12217398112o937!!!";
+      char q[] = "YOLO";
+      char p[] = "oh noi12217398112o937!!!";
   
   //  printf("ft_isalpha : %d \n", ft_isalpha(a));
   //  printf("isalpha : %d \n", isalpha(a));
@@ -74,4 +75,11 @@ int main(void)
   //  printf("%s \n", q);
   //  printf("strlcat : %lu \n", strlcat(q, p, 10));
   //  printf("%s \n", q);
+	printf("before : %s \n", q);
+//	printf("strlcpy : %lu, \n", strlcpy(q, p, 24));
+//	printf("ft_strlcpy : %lu, \n", ft_strlcpy(q, p, 24));
+	printf("after : %s \n", p);
+//	printf("strchr : %s \n", strchr(p, '7'));
+	printf("ft_strchr : %s \n", ft_strchr(p, '7'));
+	printf("after : %s \n", p);
 }
