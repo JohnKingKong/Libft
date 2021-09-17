@@ -6,7 +6,7 @@
 /*   By: jvigneau <jvigneau@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/14 12:57:46 by jvigneau          #+#    #+#             */
-/*   Updated: 2021/09/17 00:17:56 by jvigneau         ###   ########.fr       */
+/*   Updated: 2021/09/17 00:22:39 by jvigneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,5 +73,5 @@ int main(void)
   //  printf("ft_strlcat : %lu \n", ft_strlcat(q, p, (sizeof(p) + sizeof(q))));
   //  printf("%s \n", q);
   //  printf("strlcat : %lu \n", strlcat(q, p, 10));
-  //  1printf("%s \n", q);
+  //  printf("%s \n", q);
 }
