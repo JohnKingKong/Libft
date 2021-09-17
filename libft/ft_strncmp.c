@@ -1,28 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jvigneau <jvigneau@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/16 12:51:48 by jvigneau          #+#    #+#             */
-/*   Updated: 2021/09/17 18:09:45 by jvigneau         ###   ########.fr       */
+/*   Created: 2021/09/17 12:11:03 by jvigneau          #+#    #+#             */
+/*   Updated: 2021/09/17 16:21:02 by jvigneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// ecrire une fct qui reproduit a lidentique la fct memcpoy
+// ecrire une fct qui reproduit a lidentique la fct strncmp
 
 #include <stddef.h>
 
-void    *ft_memcpy(void *restrict dst, const void *restrict src, size_t n);
+int ft_strncmp(const char *s1, const char *s2, size_t n);
+int	ft_strlen(const char *s);
 
-void    *ft_memcpy(void *restrict dst, const void *restrict src, size_t n)
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	if (!(src) || !(dst))
-		return NULL;
-    while ((n-- > 0))
-    {
-        ((char *)dst)[n] = ((char *)src)[n];   
-    }
-    return (dst);
+	if ((ft_strlen(s1) < (int)n) || (ft_strlen(s2) < (int)n))
+		return (0);
+	while (n > 0)
+	{
+		if (*s1 != *s2)
+			return (*s1 - *s2);
+		s1++;
+		s2++;
+		n--;
+	}
+	return (0);
 }
+

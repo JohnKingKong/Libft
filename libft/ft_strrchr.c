@@ -1,28 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   strrchr.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jvigneau <jvigneau@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/16 12:51:48 by jvigneau          #+#    #+#             */
-/*   Updated: 2021/09/17 18:09:45 by jvigneau         ###   ########.fr       */
+/*   Created: 2021/09/17 11:37:54 by jvigneau          #+#    #+#             */
+/*   Updated: 2021/09/17 18:12:37 by jvigneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// ecrire une fct qui reproduit a lidentique la fct memcpoy
+// ecrire une fct qui reproduit a lidentique la fct strrchr
 
-#include <stddef.h>
+#include <stdlib.h>
 
-void    *ft_memcpy(void *restrict dst, const void *restrict src, size_t n);
+char	*ft_strrchr(const char *s, int c);
+int		ft_strlen(const char *s);
 
-void    *ft_memcpy(void *restrict dst, const void *restrict src, size_t n)
+char	*ft_strrchr(const char *s, int c)
 {
-	if (!(src) || !(dst))
-		return NULL;
-    while ((n-- > 0))
-    {
-        ((char *)dst)[n] = ((char *)src)[n];   
-    }
-    return (dst);
+	int i;
+
+	i  = ft_strlen(s);
+	while (--i > 0)
+		s++;
+	while (*s)
+	{
+		if (*s == (char)c)
+			return ((char *)s);
+		s--;
+	}
+	return NULL;
 }

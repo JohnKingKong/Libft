@@ -6,7 +6,7 @@
 /*   By: jvigneau <jvigneau@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/16 10:24:01 by jvigneau          #+#    #+#             */
-/*   Updated: 2021/09/16 16:02:14 by jvigneau         ###   ########.fr       */
+/*   Updated: 2021/09/17 18:09:21 by jvigneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,6 @@ void *ft_memset(void *b, int c, size_t len)
     {
         a[i] = (unsigned char)c;
     }
-    return (b = a);
+    return (a);
 }
 
