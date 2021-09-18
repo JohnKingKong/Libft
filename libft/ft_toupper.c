@@ -6,13 +6,11 @@
 /*   By: jvigneau <jvigneau@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/16 15:32:27 by jvigneau          #+#    #+#             */
-/*   Updated: 2021/09/16 15:40:20 by jvigneau         ###   ########.fr       */
+/*   Updated: 2021/09/18 13:47:14 by jvigneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 // ecrire une fct qui reproduit a lidentique la fct toupper 
-
-int	ft_toupper(int c);
 
 int	ft_toupper(int c)
 {

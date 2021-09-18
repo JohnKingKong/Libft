@@ -6,42 +6,31 @@
 /*   By: jvigneau <jvigneau@student.42quebec.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/17 01:22:02 by jvigneau          #+#    #+#             */
-/*   Updated: 2021/09/17 18:10:17 by jvigneau         ###   ########.fr       */
+/*   Updated: 2021/09/18 12:10:31 by jvigneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
- // ecrire une fct qui reproduit a lidentique la fct strchr
- 
-#include <stdlib.h>
+// ecrire une fct qui reproduit a lidentique la fct strchr
+// return la str s a partir du char c recherche
 
-char	*ft_strchr(const char *s, int c);
+#include "libft.h"
 
 char	*ft_strchr(const char *s, int c)
-{
+{	
 	int	i;
-	int	j;
-	char	*a;
 
-	i = 0;
-	j = 0;
-	a = malloc(sizeof(s));
-	while (s[i])
+	i = ft_strlen(s);
+	if (c == '\0')
 	{
-		if (s[i] == ((char)c))
-		{
-			while (s[i])
-			{
-				a[j] = s[i];
-				j++;
-				i++;
-			}
-			a[j] = '\0';
-			free (a);
-			return(a);
-		}
-		else
-			i++;
+		while (--i >= 0)
+			s++;
+		return ((char *)s);
 	}
-	free(a);
-	return (0);
+	while (*s)
+	{
+		if (*s == (c))
+			return ((char *)s);
+		s++;
+	}
+	return (NULL);
 }

@@ -6,24 +6,23 @@
 /*   By: jvigneau <jvigneau@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/17 14:57:57 by jvigneau          #+#    #+#             */
-/*   Updated: 2021/09/17 16:54:34 by jvigneau         ###   ########.fr       */
+/*   Updated: 2021/09/18 13:08:29 by jvigneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 // ecrire une fct qui reproduit a lidentique la fct memchr
+// cherche la 1ere occurence du unsigned char c dans la string s
+// retourne ladresse du byte pointer par le pointeur final de la string s
 
-#include <stddef.h>
-
-void	*ft_memchr(const void *s, int c, size_t n);
-int		ft_strlen(const char *s);
+#include "libft.h" 
 
 void	*ft_memchr(const void *s, int c, size_t n)
 {
-	char	a;
-	const char *src;
-	int		i;
+	unsigned char	a;
+	const char		*src;
+	size_t			i;
 
-	a = (const char)c;
+	a = (unsigned char)c;
 	i = 0;
 	src = ((const char *)s);
 	while (--n > 0)
@@ -32,5 +31,5 @@ void	*ft_memchr(const void *s, int c, size_t n)
 			return ((void *)&src[i]);
 		i++;
 	}
-return NULL;
+	return (NULL);
 }

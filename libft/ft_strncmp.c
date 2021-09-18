@@ -6,20 +6,17 @@
 /*   By: jvigneau <jvigneau@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/17 12:11:03 by jvigneau          #+#    #+#             */
-/*   Updated: 2021/09/17 16:21:02 by jvigneau         ###   ########.fr       */
+/*   Updated: 2021/09/18 14:33:31 by jvigneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 // ecrire une fct qui reproduit a lidentique la fct strncmp
 
-#include <stddef.h>
-
-int ft_strncmp(const char *s1, const char *s2, size_t n);
-int	ft_strlen(const char *s);
+#include "libft.h" 
 
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	if ((ft_strlen(s1) < (int)n) || (ft_strlen(s2) < (int)n))
+	if ((ft_strlen(s1) < n) || (ft_strlen(s2) < (n)))
 		return (0);
 	while (n > 0)
 	{
@@ -31,4 +28,3 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 	}
 	return (0);
 }
-

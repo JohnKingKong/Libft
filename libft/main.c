@@ -6,34 +6,12 @@
 /*   By: jvigneau <jvigneau@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/14 12:57:46 by jvigneau          #+#    #+#             */
-/*   Updated: 2021/09/17 18:43:53 by jvigneau         ###   ########.fr       */
+/*   Updated: 2021/09/18 15:23:48 by jvigneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
-#include <ctype.h>
-#include <string.h>
-#include <stddef.h>
-
-int		ft_isalpha(int c);
-int		ft_isdigit(int c);
-int		ft_isalnum(int c);
-int		ft_isascii(int c);
-int		ft_isprint(int c);
-size_t	ft_strlen(const char *s);
-void	*ft_memset(void *b, int c, size_t len);
-void	ft_bzero(void *s, size_t n);
-void	*ft_memcpy(void *restrict dst, const void *restrict src, size_t n);
-void	*ft_memmove(void *dst, const void *src, size_t len);
-int		ft_toupper(int c);
-int		ft_tolower(int c);
-size_t	ft_strlcat(char *dest, const char *src, size_t size);
-size_t	ft_strlcpy(char *dst, const char *src, size_t size);
-char	*ft_strchr(const char *s, int c);
-char	*ft_strrchr(const char *s, int c);
-int		ft_strncmp(const char *s1, const char *s2, size_t n);
-void	*ft_memchr(const void *s, int c, size_t n);
-int		ft_memcmp(const void *s1, const void *s2, size_t n);
+#include "libft.h"
 
 int main(void)
 {
@@ -77,19 +55,19 @@ int main(void)
   	printf("toupper : %d \n", toupper(a));
 	printf("ft_tolower : %d \n", ft_tolower(d));
     printf("tolower : %d \n", tolower(d));
-   // printf("ft_strlcat : %lu \n", ft_strlcat(q, p, 5));
+ //   printf("ft_strlcat : %lu \n", ft_strlcat(q, p, 5));
     printf("%s \n", q);
-   // printf("strlcat : %lu \n", strlcat(q, p, 5));
+	//printf("strlcat : %lu \n", strlcat(q, p, 5));
     printf("%s \n", q);
 	printf("before : %s \n", q);
 //	printf("strlcpy : %lu, \n", strlcpy(q, p, 5));
-//	printf("ft_strlcpy : %lu, \n", ft_strlcpy(q, p, 5));
+	printf("ft_strlcpy : %lu, \n", ft_strlcpy(q, p, 5));
 	printf("after : %s \n", q);
-	printf("strchr : %s \n", strchr(p, '7'));
-	printf("ft_strchr : %s \n", ft_strchr(p, '7'));
+	printf("strchr : %s \n", strchr(p, '\0'));
+	printf("ft_strchr : %s \n", ft_strchr(p, '\0'));
 	printf("after : %s \n", p);
-	printf("strrchr : %s \n", strrchr(p, 'o'));
-	printf("ft_strrchr : %s \n", ft_strrchr(p, 'o'));
+	printf("strrchr : %s \n", strrchr(p, '\0'));
+	printf("ft_strrchr : %s \n", ft_strrchr(p, '\0'));
 	printf("strncmp : %d \n", strncmp(s, x, 6));
 	printf("ft_strncmp : %d \n", ft_strncmp(s, x, 6));
 	printf("memchr : %p \n", memchr(s, 'A' , 4));
@@ -97,4 +75,5 @@ int main(void)
 	printf("memcmp : %d \n", memcmp(s, x , 7));
 	printf("ft_memcmp : %d \n", ft_memcmp(s, x , 7));
 	printf("strnstr : %s \n", strnstr(bg, polo, 64));
+	printf("ft_strnstr : %s \n", ft_strnstr(bg, polo, 64));
 }
