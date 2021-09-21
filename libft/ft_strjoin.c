@@ -1,23 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jvigneau <jvigneau@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/14 13:47:04 by jvigneau          #+#    #+#             */
-/*   Updated: 2021/09/20 16:35:52 by jvigneau         ###   ########.fr       */
+/*   Created: 2021/09/21 10:57:28 by jvigneau          #+#    #+#             */
+/*   Updated: 2021/09/21 17:36:34 by jvigneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// ecrire une fct qui reproduit a lidenteique la fct isalnum
-// retourne 1 si char c est alphanumerique
+// ecrire une fct qui concatene deux str en param 
+// et retourne la nouvelle str concatener
 
 #include "libft.h"
 
-int	ft_isalnum(int c)
+char	*ft_strjoin(const char *s1, const char *s2)
 {
-	if ((ft_isalpha(c)) || (ft_isdigit(c)))
-		return (1);
-	return (0);
+	char	*final;
+	size_t	longueur1;
+	size_t	longueur2;
+
+	longueur1 = ft_strlen(s1);
+	longueur2 = ft_strlen(s2);
+	final = malloc(longueur1 + longueur2);
+	free(final);
+	ft_memcpy(final, s1, longueur1);
+	ft_memcpy(&final[longueur1], s2, longueur2);
+	return (final);
 }

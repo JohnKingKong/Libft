@@ -6,7 +6,7 @@
 /*   By: jvigneau <jvigneau@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/14 12:57:46 by jvigneau          #+#    #+#             */
-/*   Updated: 2021/09/18 15:23:48 by jvigneau         ###   ########.fr       */
+/*   Updated: 2021/09/21 19:08:05 by jvigneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,16 @@ int main(void)
     int c = '\t';
     char s[] = "IaAAAAa";
     char x[] = "IaaAAAA";
-    char q[] = "YOLO";
+    char q[] = "yolo";
     char p[] = "oh nxiaoi122173ixopplo981xil12o937!!!";
 	char polo[] = "polo";
 	char bg[] = "jdshjkfsdpolflskjfslpolodkshj";
+    char j[] = "          	-21 sdaghjag";
+	char o[] = "polo";
+	char i[] = "yolo";
+	char	*final;
+	char	poil[] = "apero nono go no ouii!!";
+	char **str;
   
     printf("ft_isalpha : %d \n", ft_isalpha(a));
     printf("isalpha : %d \n", isalpha(a));
@@ -61,7 +67,7 @@ int main(void)
     printf("%s \n", q);
 	printf("before : %s \n", q);
 //	printf("strlcpy : %lu, \n", strlcpy(q, p, 5));
-	printf("ft_strlcpy : %lu, \n", ft_strlcpy(q, p, 5));
+//	printf("ft_strlcpy : %lu, \n", ft_strlcpy(q, p, 5));
 	printf("after : %s \n", q);
 	printf("strchr : %s \n", strchr(p, '\0'));
 	printf("ft_strchr : %s \n", ft_strchr(p, '\0'));
@@ -76,4 +82,22 @@ int main(void)
 	printf("ft_memcmp : %d \n", ft_memcmp(s, x , 7));
 	printf("strnstr : %s \n", strnstr(bg, polo, 64));
 	printf("ft_strnstr : %s \n", ft_strnstr(bg, polo, 64));
+	printf("atoi : %d \n", atoi(j));
+	printf("ft_atoi : %d \n", ft_atoi(j));
+	printf("calloc : %s \n", calloc(10, 12));
+	printf("ft_calloc : %s \n", ft_calloc(10,12));
+//	printf("strdup : %s \n", strdup(q));
+	final = ft_strdup(q);
+	printf("%s \n", final);
+//	printf("ft_strdup : %s \n", ft_strdup(q));
+//	printf("ft_substr : %s \n", ft_substr(p, 9, 10));
+	printf("ft_strjoin : %s \n", ft_strjoin(o, i));
+	printf("str avant : %s \n", poil);
+	printf("ft_strtrim : %s \n",ft_strtrim(poil, "oi "));
+	printf("str apres : %s \n", poil);
+	printf("str au debut : %s \n", poil);
+	str = ft_split(poil, 'g');
+	printf("first : %s \n", str[0]);
+	printf("second : %s \n", str[1]);
+	free(final);
 }

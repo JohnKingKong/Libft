@@ -1,41 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   strrchr.c                                          :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jvigneau <jvigneau@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/17 11:37:54 by jvigneau          #+#    #+#             */
-/*   Updated: 2021/09/21 14:05:14 by jvigneau         ###   ########.fr       */
+/*   Created: 2021/09/21 10:29:41 by jvigneau          #+#    #+#             */
+/*   Updated: 2021/09/21 17:39:26 by jvigneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// ecrire une fct qui reproduit a lidentique la fct strrchr
-// retourne la str s a partir de la derniere occurence du char c
+// ecrire une fct qui retourne une str qui start a start et max taille = len
 
-#include"libft.h" 
+#include "libft.h"
 
-char *ft_strrchr(const char *s, int c)
+char	*ft_substr(const char *s, unsigned int start, size_t len)
 {
-	int	i;
-	
-	i  = ft_strlen(s);
-	if (c == '\0')
-	{
-		while (i > 0)
-		{
-			i--;
-			s++;
-		}
-		return ((char *)s);
-	}
-	while (--i > 0)
-		s++;
-	while (*s)
-	{
-		if (*s == c)
-			return ((char *)s);
-		s--;
-	}
-	return (NULL);
+	char	*final;
+
+	final = malloc(len);
+	if (final == NULL)
+		return (NULL);
+	return (ft_memcpy(final, &s[start - 1], len));
 }
