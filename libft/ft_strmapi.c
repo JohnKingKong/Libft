@@ -1,27 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jvigneau <jvigneau@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/16 10:24:01 by jvigneau          #+#    #+#             */
-/*   Updated: 2021/09/22 12:28:45 by jvigneau         ###   ########.fr       */
+/*   Created: 2021/09/22 13:42:35 by jvigneau          #+#    #+#             */
+/*   Updated: 2021/09/22 13:57:57 by jvigneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// ecrire une fct qui reproduit a lidentique la fct memset
+// ecrire une fct qui passe la str s en param et lui applique la fct f 
+// en iteration pour retourner une nouvelle str resultant des differentes
+// applications de f
+
 
 #include "libft.h"
 
-void	*ft_memset(void *b, int c, size_t len)
+char	*ft_strmapi(const char *s, char (*f)(unsigned int, char))
 {
-	size_t			i;
-	unsigned char	*a;
 
-	i = -1;
-	a = (unsigned char *)b;
-	while (++i < len)
-		a[i] = (unsigned char)c;
-	return (a);
 }

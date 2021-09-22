@@ -1,27 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_putchar.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jvigneau <jvigneau@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/16 10:24:01 by jvigneau          #+#    #+#             */
-/*   Updated: 2021/09/22 12:28:45 by jvigneau         ###   ########.fr       */
+/*   Created: 2021/09/22 11:19:56 by jvigneau          #+#    #+#             */
+/*   Updated: 2021/09/22 11:21:56 by jvigneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// ecrire une fct qui reproduit a lidentique la fct memset
+// ecrire une fct qui retourne ds la sortie standard un char passe en param
 
 #include "libft.h"
 
-void	*ft_memset(void *b, int c, size_t len)
+void	ft_putchar(char a)
 {
-	size_t			i;
-	unsigned char	*a;
-
-	i = -1;
-	a = (unsigned char *)b;
-	while (++i < len)
-		a[i] = (unsigned char)c;
-	return (a);
+	write(1, &a, sizeof(a));
 }

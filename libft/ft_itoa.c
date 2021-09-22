@@ -1,45 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_split.c                                         :+:      :+:    :+:   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jvigneau <jvigneau@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/21 18:00:02 by jvigneau          #+#    #+#             */
-/*   Updated: 2021/09/22 11:00:05 by jvigneau         ###   ########.fr       */
+/*   Created: 2021/09/22 11:04:26 by jvigneau          #+#    #+#             */
+/*   Updated: 2021/09/22 15:00:11 by jvigneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// ecrire une fct qui retourne un tableau de chaines de char obtenu
-// en separant s a laide de c comme delimitateur
+// ecrire une fct qui retourne une str de char representant lint en param
+// negatif doivent etre pris en compte
 
 #include "libft.h"
 
-char	**ft_split(const char *s, char c)
+char	*ft_itoa(int n)
 {
-	char	**tab;
+	char	*final;
 	int		i;
-	int		j;
 
 	i = 0;
-	j = 0;
-	tab = malloc(sizeof(size_t) * 2);
-	tab[0] = malloc(ft_strlen(s));
-	tab[1] = malloc(ft_strlen(s));
-	while (!(*s == c))
+	final = malloc(sizeof(size_t));
+	if (n < 0)
 	{
-		tab[0][i] = *s;
+		n = n * -1;
+		final[i] = '-';
 		i++;
-		s++;
 	}
-	if (*s == c)
-		s++;
-	while (*s)
+	while (n >= 10)
 	{
-		tab[1][j] = *s;
-		j++;
-		s++;
+		final[i] = (n / 10) + 48;
+		n = n % 10;
+		i++;
 	}
-	free (tab);
-	return (tab);
+	if (n <= 9)
+	{
+		final[i] = n + 48;
+		i++;
+	}
+	final[i] = '\0';
+	return (final);
 }

@@ -6,7 +6,7 @@
 /*   By: jvigneau <jvigneau@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/14 12:57:46 by jvigneau          #+#    #+#             */
-/*   Updated: 2021/09/21 19:08:05 by jvigneau         ###   ########.fr       */
+/*   Updated: 2021/09/22 14:25:45 by jvigneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,4 +100,5 @@ int main(void)
 	printf("first : %s \n", str[0]);
 	printf("second : %s \n", str[1]);
 	free(final);
+	printf("ft_itoa : %s \n", ft_itoa(-24));
 }
