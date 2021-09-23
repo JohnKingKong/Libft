@@ -1,34 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strmapi.c                                       :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jvigneau <jvigneau@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/22 13:42:35 by jvigneau          #+#    #+#             */
-/*   Updated: 2021/09/23 16:26:15 by jvigneau         ###   ########.fr       */
+/*   Created: 2021/09/23 15:16:08 by jvigneau          #+#    #+#             */
+/*   Updated: 2021/09/23 15:21:40 by jvigneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// ecrire une fct qui passe la str s en param et lui applique la fct f 
-// en iteration pour retourner une nouvelle str resultant des differentes
-// applications de f
+// ecrire unefct qui ecrit le char c sur le file descriptor donne
 
 #include "libft.h"
 
-char	*ft_strmapi(const char *s, char (*f)(unsigned int, char))
+void	ft_putchar_fd(char c, int fd)
 {
-	char	*final;
-	int		i;
-
-	i = 0;
-	final = malloc((ft_strlen(s) + 1));
-	if (!(s[i] || f))
-		return (NULL);
-	while (s[i])
-	{
-		final[i] = (f(i, s[i]));
-		i++;
-	}
-	return (final);
+	write(fd, &c, sizeof(c));
 }

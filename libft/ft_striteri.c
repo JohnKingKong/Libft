@@ -1,45 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_split.c                                         :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jvigneau <jvigneau@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/21 18:00:02 by jvigneau          #+#    #+#             */
-/*   Updated: 2021/09/23 11:36:44 by jvigneau         ###   ########.fr       */
+/*   Created: 2021/09/23 13:48:36 by jvigneau          #+#    #+#             */
+/*   Updated: 2021/09/23 16:25:41 by jvigneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// ecrire une fct qui retourne un tableau de chaines de char obtenu
-// en separant s a laide de c comme delimitateur
+// ecrire une fct qui itere la fct f sur chq char de la str s et retourne
 
 #include "libft.h"
 
-char	**ft_split(const char *s, char c)
+void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
-	char	**tab;
-	int		i;
-	int		j;
+	int	i;
 
 	i = 0;
-	j = 0;
-	tab = malloc(sizeof(size_t) * 2);
-	tab[0] = malloc(ft_strlen(s));
-	tab[1] = malloc(ft_strlen(s));
-	while (!(*s == c))
+	if (!(s[i] || f))
+		return ;
+	while (s[i])
 	{
-		tab[0][i] = *s;
+		s[i] = f(i, &s[i]);
 		i++;
-		s++;
 	}
-	if (*s == c)
-		s++;
-	while (*s)
-	{
-		tab[1][j] = *s;
-		j++;
-		s++;
-	}
-	free (tab);
-	return (tab);
 }
