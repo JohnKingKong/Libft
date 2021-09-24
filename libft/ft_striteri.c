@@ -6,7 +6,7 @@
 /*   By: jvigneau <jvigneau@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/23 13:48:36 by jvigneau          #+#    #+#             */
-/*   Updated: 2021/09/23 16:25:41 by jvigneau         ###   ########.fr       */
+/*   Updated: 2021/09/24 12:02:43 by jvigneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 		return ;
 	while (s[i])
 	{
-		s[i] = f(i, &s[i]);
+		f(i, &s[i]);
 		i++;
 	}
 }

@@ -6,20 +6,20 @@
 /*   By: jvigneau <jvigneau@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/17 11:37:54 by jvigneau          #+#    #+#             */
-/*   Updated: 2021/09/21 14:05:14 by jvigneau         ###   ########.fr       */
+/*   Updated: 2021/09/24 12:31:51 by jvigneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 // ecrire une fct qui reproduit a lidentique la fct strrchr
 // retourne la str s a partir de la derniere occurence du char c
 
-#include"libft.h" 
+#include "libft.h" 
 
-char *ft_strrchr(const char *s, int c)
+char	*ft_strrchr(const char *s, int c)
 {
 	int	i;
-	
-	i  = ft_strlen(s);
+
+	i = ft_strlen(s);
 	if (c == '\0')
 	{
 		while (i > 0)
