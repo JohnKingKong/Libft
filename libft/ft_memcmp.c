@@ -6,7 +6,7 @@
 /*   By: jvigneau <jvigneau@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/17 16:23:09 by jvigneau          #+#    #+#             */
-/*   Updated: 2021/09/18 13:10:21 by jvigneau         ###   ########.fr       */
+/*   Updated: 2021/09/27 11:37:41 by jvigneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 	sa = (const unsigned char *)s1;
 	sb = (const unsigned char *)s2;
 	i = 0;
-	while (n >= 0)
+	while (n > 0)
 	{
 		if (sa[i] != sb[i])
 			return (sa[i] - sb[i]);

@@ -6,7 +6,7 @@
 /*   By: jvigneau <jvigneau@student.42quebec.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/14 11:47:59 by jvigneau          #+#    #+#             */
-/*   Updated: 2021/09/18 12:03:36 by jvigneau         ###   ########.fr       */
+/*   Updated: 2021/09/25 12:28:34 by jvigneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,7 @@
 
 int	ft_isalpha(int c)
 {
-	unsigned char	a;
-
-	a = (unsigned char)c;
-	if (((a >= 65) && (a <= 90)) || ((a >= 97) && (a <= 122)))
+	if (((c >= 65) && (c <= 90)) || ((c >= 97) && (c <= 122)))
 		return (1);
 	return (0);
 }

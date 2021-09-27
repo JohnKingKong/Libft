@@ -6,7 +6,7 @@
 /*   By: jvigneau <jvigneau@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/16 09:52:50 by jvigneau          #+#    #+#             */
-/*   Updated: 2021/09/18 12:05:28 by jvigneau         ###   ########.fr       */
+/*   Updated: 2021/09/25 12:34:53 by jvigneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,7 @@
 
 int	ft_isprint(int c)
 {
-	unsigned char	a;
-
-	a = (unsigned char)c;
-	if ((a >= 32) && (a <= 126))
+	if ((c >= 32) && (c <= 126))
 		return (1);
 	return (0);
 }

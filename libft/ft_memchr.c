@@ -6,7 +6,7 @@
 /*   By: jvigneau <jvigneau@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/17 14:57:57 by jvigneau          #+#    #+#             */
-/*   Updated: 2021/09/23 09:32:05 by jvigneau         ###   ########.fr       */
+/*   Updated: 2021/09/25 14:16:37 by jvigneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	src = ((const char *)s);
 	while (--n > 0)
 	{
-		if (src[i] == a)
+		if ((unsigned char)src[i] == a)
 			return ((void *)&src[i]);
 		i++;
 	}

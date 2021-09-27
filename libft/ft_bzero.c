@@ -6,7 +6,7 @@
 /*   By: jvigneau <jvigneau@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/16 11:26:09 by jvigneau          #+#    #+#             */
-/*   Updated: 2021/09/18 12:48:11 by jvigneau         ###   ########.fr       */
+/*   Updated: 2021/09/25 12:51:20 by jvigneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,10 @@ void	ft_bzero(void *s, size_t n)
 	i = -1;
 	if (n == 0)
 		return ;
-	while (--n > 0)
-		((unsigned char *)s)[++i] = 0;
+	while (n > 0)
+	{
+		((char *)s)[++i] = 0;
+		n--;
+	}
 	return ;
 }

@@ -6,7 +6,7 @@
 /*   By: jvigneau <jvigneau@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/16 15:43:19 by jvigneau          #+#    #+#             */
-/*   Updated: 2021/09/18 13:47:05 by jvigneau         ###   ########.fr       */
+/*   Updated: 2021/09/25 12:35:45 by jvigneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_tolower(int c)
 {
-	if ((((unsigned char)c) >= 65) && (((unsigned char)c) <= 90))
+	if ((c >= 65) && (c <= 90))
 		c += 32;
 	return (c);
 }

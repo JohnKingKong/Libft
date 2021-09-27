@@ -6,7 +6,7 @@
 /*   By: jvigneau <jvigneau@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/16 12:51:48 by jvigneau          #+#    #+#             */
-/*   Updated: 2021/09/21 14:20:48 by jvigneau         ###   ########.fr       */
+/*   Updated: 2021/09/25 13:09:04 by jvigneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
-	if (!(src) || !(dst))
+	if (((char *)src == NULL) && ((char *)dst == NULL))
 		return (NULL);
 	while ((n-- > 0))
 	{

@@ -6,7 +6,7 @@
 /*   By: jvigneau <jvigneau@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/16 09:43:49 by jvigneau          #+#    #+#             */
-/*   Updated: 2021/09/18 12:24:09 by jvigneau         ###   ########.fr       */
+/*   Updated: 2021/09/25 12:34:19 by jvigneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 int	ft_isascii(int c)
 {
-	if (((unsigned char)c >= 0) && ((unsigned char)c <= 127))
+	if ((c >= 0) && (c <= 127))
 		return (1);
 	return (0);
 }
