@@ -6,7 +6,7 @@
 /*   By: jvigneau <jvigneau@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/22 11:04:26 by jvigneau          #+#    #+#             */
-/*   Updated: 2021/09/22 15:00:11 by jvigneau         ###   ########.fr       */
+/*   Updated: 2021/10/01 13:39:56 by jvigneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,30 +15,64 @@
 
 #include "libft.h"
 
+static int	nb_digits(int n)
+{
+	int	res;
+
+	res = 1;
+	if (n < 0)
+		res += 1;
+	while (n >= 10 || n <= -10)
+	{
+		n = (n / 10);
+		res += 1;
+	}
+	return (res);
+}
+
+static	char	*reverse(char *final, int sign)
+{
+	size_t	n;
+	char	temp;
+
+	n = 0;
+	while (n < ft_strlen(final) / 2)
+	{
+		temp = final[n];
+		final[n] = final[ft_strlen(final) - n - 1];
+		final[ft_strlen(final) - n - 1] = temp;
+		n++;
+	}
+	if (sign == -1)
+		final = final - 1;
+	return (final);
+}
+
 char	*ft_itoa(int n)
 {
 	char	*final;
 	int		i;
 
 	i = 0;
-	final = malloc(sizeof(size_t));
+	final = ft_calloc(nb_digits(n) + 1, sizeof(char));
+	if (!final)
+		return (NULL);
+	final[0] = '0';
 	if (n < 0)
 	{
-		n = n * -1;
-		final[i] = '-';
-		i++;
+		final[i++] = '-';
+		final[i++] = 48 - n % 10;
+		n = n / -10;
 	}
-	while (n >= 10)
+	while (n != 0)
 	{
-		final[i] = (n / 10) + 48;
-		n = n % 10;
+		final[i] = (n % 10) + 48;
+		n = n / 10;
 		i++;
 	}
-	if (n <= 9)
-	{
-		final[i] = n + 48;
-		i++;
-	}
-	final[i] = '\0';
+	if (final[0] == '-')
+		reverse(final + 1, -1);
+	else
+		reverse(final, 1);
 	return (final);
 }

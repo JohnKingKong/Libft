@@ -6,7 +6,7 @@
 /*   By: jvigneau <jvigneau@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/21 13:25:51 by jvigneau          #+#    #+#             */
-/*   Updated: 2021/09/21 17:33:33 by jvigneau         ###   ########.fr       */
+/*   Updated: 2021/10/02 10:49:47 by jvigneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,45 +15,17 @@
 
 #include "libft.h"
 
-static	int	check_set(int i, const char *s1, const char *set)
-{
-	int	j;
-
-	j = 0;
-	while (set[j])
-	{
-		if (s1[i] == set[j])
-			return (0);
-		j++;
-	}
-	return (1);
-}
-
 char	*ft_strtrim(const char *s1, const char *set)
 {
-	int		i;
 	int		j;
-	int		k;
-	int		l;
-	char	*final;
 
-	final = malloc(ft_strlen(s1) + 1);
-	ft_bzero(final, ft_strlen(final));
-	i = 0;
-	l = 0;
-	if (!(s1) || !(set))
+	j = 0;
+	if (!s1 || !set)
 		return (NULL);
-	while (s1[i])
-	{
-		if (check_set(i, s1, set))
-		{
-			final[l] = s1[i];
-			l++;
-		}
-		j = 0;
-		k = 0;
-		i++;
-	}
-	final[l] = '\0';
-	return (final);
+	while (*s1 && ft_strchr(set, *s1))
+		s1++;
+	j = ft_strlen(s1);
+	while (j && ft_strrchr(set, s1[j]))
+		j--;
+	return (ft_substr((char *)s1, 0, j + 1));
 }

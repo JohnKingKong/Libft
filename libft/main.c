@@ -6,7 +6,7 @@
 /*   By: jvigneau <jvigneau@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/14 12:57:46 by jvigneau          #+#    #+#             */
-/*   Updated: 2021/09/22 14:25:45 by jvigneau         ###   ########.fr       */
+/*   Updated: 2021/09/30 17:52:00 by jvigneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ int main(void)
   	printf("toupper : %d \n", toupper(a));
 	printf("ft_tolower : %d \n", ft_tolower(d));
     printf("tolower : %d \n", tolower(d));
- //   printf("ft_strlcat : %lu \n", ft_strlcat(q, p, 5));
+ //  printf("ft_strlcat : %lu \n", ft_strlcat(q, p, 5));
     printf("%s \n", q);
 	//printf("strlcat : %lu \n", strlcat(q, p, 5));
     printf("%s \n", q);

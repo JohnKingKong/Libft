@@ -6,7 +6,7 @@
 /*   By: jvigneau <jvigneau@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/22 13:42:35 by jvigneau          #+#    #+#             */
-/*   Updated: 2021/09/23 16:26:15 by jvigneau         ###   ########.fr       */
+/*   Updated: 2021/10/01 10:51:57 by jvigneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,10 @@ char	*ft_strmapi(const char *s, char (*f)(unsigned int, char))
 	int		i;
 
 	i = 0;
-	final = malloc((ft_strlen(s) + 1));
-	if (!(s[i] || f))
+	if (!s || !f)
+		return (NULL);
+	final = ft_calloc((ft_strlen(s) + 1), sizeof(char));
+	if (!final)
 		return (NULL);
 	while (s[i])
 	{

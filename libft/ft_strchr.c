@@ -6,7 +6,7 @@
 /*   By: jvigneau <jvigneau@student.42quebec.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/17 01:22:02 by jvigneau          #+#    #+#             */
-/*   Updated: 2021/09/18 12:10:31 by jvigneau         ###   ########.fr       */
+/*   Updated: 2021/10/02 11:29:48 by jvigneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ char	*ft_strchr(const char *s, int c)
 	}
 	while (*s)
 	{
-		if (*s == (c))
+		if (*s == ((char)c))
 			return ((char *)s);
 		s++;
 	}

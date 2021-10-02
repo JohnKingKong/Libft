@@ -6,7 +6,7 @@
 /*   By: jvigneau <jvigneau@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/21 09:51:15 by jvigneau          #+#    #+#             */
-/*   Updated: 2021/09/21 17:36:01 by jvigneau         ###   ########.fr       */
+/*   Updated: 2021/09/28 10:46:31 by jvigneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,9 @@ char	*ft_strdup(const char *s1)
 {
 	char	*final;
 
-	final = malloc(strlen(s1));
+	final = malloc((ft_strlen(s1) + 1));
 	if (final == NULL)
 		return (NULL);
+	ft_bzero(final, (ft_strlen(s1) + 1));
 	return (ft_memcpy(final, s1, (ft_strlen(s1))));
 }

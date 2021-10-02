@@ -6,7 +6,7 @@
 /*   By: jvigneau <jvigneau@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/16 13:28:20 by jvigneau          #+#    #+#             */
-/*   Updated: 2021/09/27 11:30:19 by jvigneau         ###   ########.fr       */
+/*   Updated: 2021/09/29 13:31:43 by jvigneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 	size_t	i;
 
 	i = -1;
-	if (((char *)src == NULL) && (const char* )dst == NULL)
-		return (NULL);	
+	if (((char *)src == NULL) && (const char *)dst == NULL)
+		return (NULL);
 	if (dst > src)
 	{
 		while (len-- > 0)

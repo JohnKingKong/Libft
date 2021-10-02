@@ -6,7 +6,7 @@
 /*   By: jvigneau <jvigneau@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/20 16:18:53 by jvigneau          #+#    #+#             */
-/*   Updated: 2021/09/21 17:34:46 by jvigneau         ###   ########.fr       */
+/*   Updated: 2021/10/01 15:14:20 by jvigneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,8 @@ void	*ft_calloc(size_t count, size_t size)
 {
 	char	*fin;
 
-	if (count == 0 || size == 0)
-	{
-		++count;
-		++size;
-	}
 	fin = malloc(count * size);
 	if (fin)
 		ft_bzero(fin, (count * size));
-	free(fin);
 	return (fin);
 }

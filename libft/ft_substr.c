@@ -6,7 +6,7 @@
 /*   By: jvigneau <jvigneau@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/21 10:29:41 by jvigneau          #+#    #+#             */
-/*   Updated: 2021/09/21 17:39:26 by jvigneau         ###   ########.fr       */
+/*   Updated: 2021/10/01 10:34:06 by jvigneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,27 @@
 char	*ft_substr(const char *s, unsigned int start, size_t len)
 {
 	char	*final;
+	size_t	i;
+	size_t	j;
 
-	final = malloc(len);
-	if (final == NULL)
+	i = 0;
+	j = 0;
+	if (!s)
 		return (NULL);
-	return (ft_memcpy(final, &s[start - 1], len));
+	if (len > ft_strlen(s))
+		len = ft_strlen(s);
+	final = ft_calloc(len + 1, sizeof(char));
+	if (!final)
+		return (NULL);
+	i = start;
+	if (start >= (ft_strlen(s)))
+		return (final);
+	while (s[i] && j < len)
+	{
+		final[j] = s[i];
+		j++;
+		i++;
+	}
+	final[j] = '\0';
+	return (final);
 }

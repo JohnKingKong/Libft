@@ -6,7 +6,7 @@
 /*   By: jvigneau <jvigneau@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/17 18:13:48 by jvigneau          #+#    #+#             */
-/*   Updated: 2021/09/21 17:38:23 by jvigneau         ###   ########.fr       */
+/*   Updated: 2021/09/29 16:12:24 by jvigneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,45 +19,26 @@
 
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
-	int		i;
-	char	*strfin;
+	size_t	i;
+	size_t	j;
+	size_t	k;
 
 	i = 0;
-	while (haystack[i] && --len > 0)
+	j = 0;
+	k = ft_strlen(needle);
+	if (needle[0] == '\0')
+		return ((char *)haystack);
+	while (haystack[i] && i < len)
 	{
-		if (haystack[i] == *needle)
+		if ((haystack[i] == needle[0]) && (k <= len - i))
 		{
-			strfin = (char *)haystack + i;
-			if (!(ft_strncmp(strfin, needle, ft_strlen(needle))))
+			while (needle[j] && haystack[i + j] == needle[j])
+				j++;
+			if (needle[j] == '\0')
 				return ((char *)haystack + i);
+			j = 0;
 		}
 		i++;
 	}
-	return (0);
+	return (NULL);
 }
-//{
-//	size_t	i;
-//	size_t	j;
-//
-//	i = 0;
-//	j = 0;
-//	while (haystack[i] && --len > 0)
-//	{
-//		i = 0;
-//		if  (needle[i] == '\0')
-//			return 0;
-//		while (ft_strchr(&haystack[j], needle[i]))
-//		{
-//			i++;
-//			j++;
-//		}
-//		j = 0;
-//		if (ft_strlen(needle) == i)
-//		{
-//			printf("YOLO");
-//			return ((char *)&haystack[j]);
-//		}
-//		j++;
-//	}
-//	return (NULL);;
-//}
