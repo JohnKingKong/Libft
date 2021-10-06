@@ -1,26 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jvigneau <jvigneau@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/16 10:02:45 by jvigneau          #+#    #+#             */
-/*   Updated: 2021/10/04 12:56:53 by jvigneau         ###   ########.fr       */
+/*   Created: 2021/10/06 15:55:04 by jvigneau          #+#    #+#             */
+/*   Updated: 2021/10/06 16:05:56 by jvigneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// ecrire une fct qui reproduit a lidentique strlen
-// retourne un int correspondant a la longueur de la string s
+// ecrire une fct qui libere la memoire de lelement en arg en utilisant la fct
+// del et en free
 
-#include "libft.h" 
+#include "libft.h"
 
-size_t	ft_strlen(const char *s)
+void	ft_lstdelone(t_list *lst, void (*del)(void *))
 {
-	size_t	i;
-
-	i = 0;
-	while (s[i])
-		i++;
-	return (i);
+	if (!lst || !del)
+		return ;
+	del (lst->content);
+	free(lst);
 }

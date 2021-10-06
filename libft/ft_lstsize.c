@@ -1,26 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jvigneau <jvigneau@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/16 10:02:45 by jvigneau          #+#    #+#             */
-/*   Updated: 2021/10/04 12:56:53 by jvigneau         ###   ########.fr       */
+/*   Created: 2021/10/06 13:26:08 by jvigneau          #+#    #+#             */
+/*   Updated: 2021/10/06 14:25:41 by jvigneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// ecrire une fct qui reproduit a lidentique strlen
-// retourne un int correspondant a la longueur de la string s
+// ecrire une fct qui compte le nb delement de la liste
 
-#include "libft.h" 
+#include "libft.h"
 
-size_t	ft_strlen(const char *s)
+int	ft_lstsize(t_list *lst)
 {
-	size_t	i;
+	int	i;
 
-	i = 0;
-	while (s[i])
+	i = 1;
+	if (lst == NULL)
+		return (0);
+	lst = lst->next;
+	while (lst != NULL)
+	{
 		i++;
+		lst = lst->next;
+	}
 	return (i);
 }

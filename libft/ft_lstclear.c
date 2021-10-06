@@ -1,26 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jvigneau <jvigneau@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/16 10:02:45 by jvigneau          #+#    #+#             */
-/*   Updated: 2021/10/04 12:56:53 by jvigneau         ###   ########.fr       */
+/*   Created: 2021/10/06 17:54:51 by jvigneau          #+#    #+#             */
+/*   Updated: 2021/10/06 18:09:52 by jvigneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// ecrire une fct qui reproduit a lidentique strlen
-// retourne un int correspondant a la longueur de la string s
+// ecrire une fct qui libere la memoire de lelement en param et tous les 
+// elements qui suivent, avec del et free, et le ptr initiakl point a NULL
 
-#include "libft.h" 
+#include "libft.h"
 
-size_t	ft_strlen(const char *s)
+void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
-	size_t	i;
+	t_list	*last;
 
-	i = 0;
-	while (s[i])
-		i++;
-	return (i);
+	last = *lst;
+	if (lst)
+	{
+		while (last->next)
+			del((t_list *)lst);
+	}
+	last = NULL;
 }

@@ -6,7 +6,7 @@
 /*   By: jvigneau <jvigneau@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/21 10:29:41 by jvigneau          #+#    #+#             */
-/*   Updated: 2021/10/01 10:34:06 by jvigneau         ###   ########.fr       */
+/*   Updated: 2021/10/05 16:03:33 by jvigneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,5 @@ char	*ft_substr(const char *s, unsigned int start, size_t len)
 		j++;
 		i++;
 	}
-	final[j] = '\0';
 	return (final);
 }

@@ -1,26 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jvigneau <jvigneau@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/16 10:02:45 by jvigneau          #+#    #+#             */
-/*   Updated: 2021/10/04 12:56:53 by jvigneau         ###   ########.fr       */
+/*   Created: 2021/10/06 14:39:49 by jvigneau          #+#    #+#             */
+/*   Updated: 2021/10/06 15:44:31 by jvigneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// ecrire une fct qui reproduit a lidentique strlen
-// retourne un int correspondant a la longueur de la string s
+// ecrire une fct qui ajoute lelement new a la fin de la liste
 
-#include "libft.h" 
+#include "libft.h"
 
-size_t	ft_strlen(const char *s)
+void	ft_lstadd_back(t_list **alst, t_list *new)
 {
-	size_t	i;
+	t_list	*last;
 
-	i = 0;
-	while (s[i])
-		i++;
-	return (i);
+	if (*alst)
+	{
+		last = ft_lstlast(*alst);
+		last->next = new;
+	}
+	else
+		*alst = new;
 }

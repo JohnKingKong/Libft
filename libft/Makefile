@@ -6,7 +6,7 @@
 #    By: jvigneau <jvigneau@student.42quebec>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/24 11:00:19 by jvigneau          #+#    #+#              #
-#    Updated: 2021/09/28 16:02:47 by jvigneau         ###   ########.fr        #
+#    Updated: 2021/10/06 18:22:46 by jvigneau         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,8 +18,13 @@ SRCS	= 	ft_atoi.c ft_bzero.c  ft_calloc.c ft_isalnum.c ft_isalpha.c \
 			ft_strlcat.c ft_strlcpy.c ft_strlen.c ft_strmapi.c ft_strncmp.c \
 			ft_strnstr.c ft_strtrim.c ft_substr.c ft_tolower.c ft_toupper.c \
 			ft_strrchr.c
+BONUS	=	ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c \
+			ft_lstadd_back.c ft_lstdelone.c ft_lstclear.c
 
 OBJS	=	${SRCS:.c=.o}
+
+BONOBJS	=	${BONUS:.c=.o}
+
 
 CC		=	gcc
 
@@ -39,8 +44,11 @@ clean	:
 			${RM} ${OBJS}
 
 fclean	:	clean
-			$(RM) $(NAME)
+			$(RM) $(NAME) ${BONOBJS}
 
 re		:	fclean all 
+
+bonus	:	${BONOBJS}		
+			ar rcs ${NAME} ${OBJS} ${BONOBJS}
 
 .PHONY	:	all clean fclean re

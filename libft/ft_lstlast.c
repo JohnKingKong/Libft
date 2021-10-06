@@ -1,26 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jvigneau <jvigneau@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/16 10:02:45 by jvigneau          #+#    #+#             */
-/*   Updated: 2021/10/04 12:56:53 by jvigneau         ###   ########.fr       */
+/*   Created: 2021/10/06 14:26:56 by jvigneau          #+#    #+#             */
+/*   Updated: 2021/10/06 18:21:11 by jvigneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// ecrire une fct qui reproduit a lidentique strlen
-// retourne un int correspondant a la longueur de la string s
+//ecrire une fct qui renvoie le dernier element de la liste
 
-#include "libft.h" 
+#include "libft.h"
 
-size_t	ft_strlen(const char *s)
+t_list	*ft_lstlast(t_list *lst)
 {
-	size_t	i;
-
-	i = 0;
-	while (s[i])
-		i++;
-	return (i);
+	if (lst)
+	{
+		while (lst->next)
+		{
+			if (lst->next == NULL)
+				return (lst);
+			lst = lst->next;
+		}
+	}
+	return (lst);
 }

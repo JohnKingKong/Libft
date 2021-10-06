@@ -6,7 +6,7 @@
 /*   By: jvigneau <jvigneau@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/21 13:25:51 by jvigneau          #+#    #+#             */
-/*   Updated: 2021/10/02 10:49:47 by jvigneau         ###   ########.fr       */
+/*   Updated: 2021/10/06 18:05:22 by jvigneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ char	*ft_strtrim(const char *s1, const char *set)
 	while (*s1 && ft_strchr(set, *s1))
 		s1++;
 	j = ft_strlen(s1);
-	while (j && ft_strrchr(set, s1[j]))
+	while (j && ft_strchr(set, s1[j]))
 		j--;
 	return (ft_substr((char *)s1, 0, j + 1));
 }
