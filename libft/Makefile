@@ -6,7 +6,7 @@
 #    By: jvigneau <jvigneau@student.42quebec>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/24 11:00:19 by jvigneau          #+#    #+#              #
-#    Updated: 2021/10/06 18:22:46 by jvigneau         ###   ########.fr        #
+#    Updated: 2021/10/07 10:56:20 by jvigneau         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ SRCS	= 	ft_atoi.c ft_bzero.c  ft_calloc.c ft_isalnum.c ft_isalpha.c \
 			ft_strnstr.c ft_strtrim.c ft_substr.c ft_tolower.c ft_toupper.c \
 			ft_strrchr.c
 BONUS	=	ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c \
-			ft_lstadd_back.c ft_lstdelone.c ft_lstclear.c
+			ft_lstdelone.c ft_lstadd_back.c
 
 OBJS	=	${SRCS:.c=.o}
 
@@ -41,7 +41,7 @@ all		:	$(NAME)
 
 
 clean	:	
-			${RM} ${OBJS}
+			${RM} ${OBJS} ${BONOBJS}
 
 fclean	:	clean
 			$(RM) $(NAME) ${BONOBJS}
