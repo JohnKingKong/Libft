@@ -6,7 +6,7 @@
 /*   By: jvigneau <jvigneau@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/20 14:56:20 by jvigneau          #+#    #+#             */
-/*   Updated: 2021/10/01 10:15:04 by jvigneau         ###   ########.fr       */
+/*   Updated: 2021/10/11 11:18:22 by jvigneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,6 @@
 // change un char ascii en integer
 
 #include "libft.h"
-
-static int	check_long(const char *str);
-
-static int	check_spaces(const char *str);
 
 static int	check_spaces(const char *str)
 {

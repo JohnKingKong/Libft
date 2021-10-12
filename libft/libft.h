@@ -6,18 +6,12 @@
 /*   By: jvigneau <jvigneau@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/18 09:35:09 by jvigneau          #+#    #+#             */
-/*   Updated: 2021/10/07 10:28:58 by jvigneau         ###   ########.fr       */
+/*   Updated: 2021/10/07 13:25:29 by jvigneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 // librairie de fonctions utiles pour le cursus 42
 // contient les fonctions, ainsi que les librairies a inclure
-
- typedef struct      s_list
-{
-	void            *content;
-    struct  s_list  *next;
-}					t_list;
 
 #ifndef LIBFT_H
 # define LIBFT_H
@@ -29,6 +23,12 @@
 # include <stdio.h>
 # include <unistd.h>
 # include <limits.h>
+
+typedef struct s_list
+{
+	void			*content;
+	struct s_list	*next;
+}	t_list;
 
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
@@ -45,7 +45,6 @@ void	*ft_memset(void *b, int c, size_t len);
 void	*ft_memchr(const void *s, int c, size_t n);
 void	*ft_memmove(void *dst, const void *src, size_t len);
 void	*ft_calloc(size_t count, size_t size);
-void	ft_putchar(char a);
 void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
@@ -73,4 +72,6 @@ t_list	*ft_lstlast(t_list *lst);
 void	ft_lstadd_back(t_list **alst, t_list *new);
 void	ft_lstdelone(t_list *lst, void (*del)(void *));
 void	ft_lstclear(t_list **lst, void (*del)(void *));
+void	ft_lstiter(t_list *lst, void (*f)(void *));
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 #endif

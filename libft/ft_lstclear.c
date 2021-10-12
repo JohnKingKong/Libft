@@ -6,7 +6,7 @@
 /*   By: jvigneau <jvigneau@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/06 17:54:51 by jvigneau          #+#    #+#             */
-/*   Updated: 2021/10/07 10:22:48 by jvigneau         ###   ########.fr       */
+/*   Updated: 2021/10/07 12:38:38 by jvigneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 #include "libft.h"
 
-void	ft_lstclear(t_list **lst, void(*del)(void *))
+void	ft_lstclear(t_list **lst, void (*del) (void *))
 {
 	t_list	*last;
 
