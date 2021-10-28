@@ -1,10 +1,10 @@
 # 42-Libft
 
-Personnal standard library, made for the first 42 prroject, filled to the brim with useful functions.
+Personnal standard library, made for the first 42 project, filled to the brim with useful functions.
 
 ## Description
 
-At 42, we aren't allowed to use basic functions, without implementing it first, which mean the first project is to build a library from scratch, full of functions that copies the behavior of already implemented functions, plus a few more designed from scratch. This library contains functions as simple as strlen or putchar, or as complicated as ft_split, or ft_itoa. The mandatory, aswell as the bonus functions have been done, for a grand total of 125/100.
+At 42, we aren't allowed to use basic functions, without implementing it first, which mean the first project is to build our very own library, full of functions that copies the behavior of already implemented functions, plus a few more designed from scratch. This library contains functions as simple as strlen or putchar and as complicated as ft_split or ft_itoa. All of the mandatory, aswell as the bonus functions have been done, for a grand total of 125/100.
 This library will more than likely be updated as I'm going through my cursus, as I'll be allowed to implement it in future projects.
 
 ## Getting Started
@@ -12,18 +12,21 @@ This library will more than likely be updated as I'm going through my cursus, as
 ### Dependencies
 
 * No real dependencies, apart common and standard libraries (ex: stdef.h, string.h, ctype.h, etc)
-* I used, as many others (and suggest you do so), some testers to verify the validity of the functions;
-* Testers such as [Tripouille](https://github.com/Tripouille/libftTester)
+* I used, as many others (and suggest you do so), some testers to verify the validity of the functions \
+Testers such as : [libft-Tester](https://github.com/Tripouille/libftTester) by [Tripouile](https://github.com/Tripouille) \
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[libft-Unit-Tester](https://github.com/alelievr/libft-unit-test) by [Antoine Lelievre](https://github.com/alelievr) \
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[libft-war-machine](https://github.com/ska42/libft-war-machine) by [ska42](https://github.com/ska42)
 
 ### Installing
 
 * Clone the repo wherever you want the library to be.
+* 
 
 ### Executing program
 
-* There is a Makefile, with rules like all, clean, fclean, bonus and re. the bonus rule allows you to compile the bonus functions aswell as the mandatory ones. The Makefile is instructed to compile with GCC appending -Wall, -Werror and -Wextra as flags.
+* There is a Makefile, with rules like ```make all```, ```make clean```, ```make fclean```, ```make bonus``` and ```make re```. The ```make bonus``` rule allows you to compile the bonus functions aswell as the mandatory ones. The Makefile is instructed to compile with GCC appending ```-Wall, -Werror and -Wextra``` as flags.
 
-* You can get rid of the ".o" afterwards, using make clean, or fclean, to get rid of the libft.a aswell.
+* You can get rid of the ".o" afterwards, using ```make clean``` or ```make fclean```, to get rid of the "libft.a" aswell.
 
 ## Help
 
