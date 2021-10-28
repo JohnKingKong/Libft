@@ -26,7 +26,7 @@ git clone git@github.com:JohnKingKong/Libft.git
 
 ### Executing program
 
-* There is a Makefile, with rules like ```make all```, ```make clean```, ```make fclean```, ```make bonus``` and ```make re```. The ```make bonus``` rule allows you to compile the bonus functions aswell as the mandatory ones. The Makefile is instructed to compile with GCC appending ```-Wall, -Werror and -Wextra``` as flags.
+* There is a Makefile, with rules like ```make all```, ```make clean```, ```make fclean```, ```make bonus``` and ```make re```. The ```make bonus``` rule allows you to compile the bonus functions aswell as the mandatory ones. The Makefile is instructed to compile with ```GCC``` appending ```-Wall, -Werror and -Wextra``` as flags.
 
 * You can get rid of the ".o" afterwards, using ```make clean``` or ```make fclean```, to get rid of the "libft.a" aswell.
 
@@ -50,7 +50,7 @@ IG : @wutsthat
 * 0.1
   * 0.1.2
       * Commit with bonus functions
-  * 0.1.12
+  * 0.1.1
       * First Commit without bonus functions
 
 ## License
