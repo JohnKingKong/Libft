@@ -33,7 +33,7 @@ Contributors names and contact info
 
 Jean-René Vigneault
 <jeanre002@gmail.com>, <jvigneau@student.42quebec.fr>
-IG : <@wutsthat>
+IG : @wutsthat
 
 ## Version History
 
