@@ -12,6 +12,8 @@ This library will more than likely be updated as I'm going through my cursus, as
 ### Dependencies
 
 * No real dependencies, apart common and standard libraries (ex: stdef.h, string.h, ctype.h, etc)
+* I used, as many others (and suggest you do so), some testers to verify the validity of the functions;
+* Testers such as [Tripouille](https://github.com/Tripouille/libftTester)
 
 ### Installing
 
@@ -19,13 +21,13 @@ This library will more than likely be updated as I'm going through my cursus, as
 
 ### Executing program
 
-* There is a Makefile, whick rules like all, clean, fclean, bonus and re. the bonus rule allows you to compile the bonus functions aswell as the mandatory ones. The Makefile is instructed to compile with GCC appending -Wall, -Werror and -Wextra as flags.
+* There is a Makefile, with rules like all, clean, fclean, bonus and re. the bonus rule allows you to compile the bonus functions aswell as the mandatory ones. The Makefile is instructed to compile with GCC appending -Wall, -Werror and -Wextra as flags.
 
 * You can get rid of the ".o" afterwards, using make clean, or fclean, to get rid of the libft.a aswell.
 
 ## Help
 
-* If any problem is encountered during the compiling, be aware these functions were written and used on a Mac. which can influence the compiling. I know some functions doesn't complie in Windows environment, but I'm pretty sure Linux can handle all of em just fine.
+* If any problem is encountered during the compiling, be aware these functions were written and used on a Mac. which can influence the compiling. I know some functions doesn't compile in Windows environment, but I'm pretty sure Linux can handle all of em just fine.
 
 ## Authors
 
@@ -39,7 +41,7 @@ IG : @wutsthat
 
 * 0.2
   * 0.2.1
-    * Added more functions, useful for printf
+    * Added more functions, useful for printf, aswell as the .pdf for the subject, both in french and english.
 * 0.1
   * 0.1.2
       * Commit with bonus functions
@@ -48,4 +50,4 @@ IG : @wutsthat
 
 ## License
 
-Feel free to use as a reference or to clone the repo. Be sure to understand what you use tho, and be sure to  credit authors of stuff you use in your projects.
+Feel free to use as a reference or to clone the repo. Be sure to understand what you use tho, and be sure to credit authors of stuff you use in your projects.
