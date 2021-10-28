@@ -19,8 +19,10 @@ Testers such as : [libft-Tester](https://github.com/Tripouille/libftTester) by [
 
 ### Installing
 
-* Clone the repo wherever you want the library to be.
-* 
+* Clone the repo wherever you want the library to be. 
+```markdown 
+git clone git@github.com:JohnKingKong/Libft.git
+```
 
 ### Executing program
 
