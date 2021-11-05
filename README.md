@@ -14,7 +14,7 @@ This library will more than likely be updated as I'm going through my cursus, as
 * No real dependencies, apart common and standard libraries (ex: stdef.h, string.h, ctype.h, etc)
 * I used, as many others (and suggest you do so), some testers to verify the validity of the functions \
 Testers such as : [libft-Tester](https://github.com/Tripouille/libftTester) by [Tripouile](https://github.com/Tripouille) \
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[libft-Unit-Tester](https://github.com/alelievr/libft-unit-test) by [Antoine Lelievre](https://github.com/alelievr) \
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[libft-Unit-Tester](https://github.com/alelievr/libft-unit-test) by [Antoine Lelievre](https://github.com/alelievr) \
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[libft-war-machine](https://github.com/ska42/libft-war-machine) by [ska42](https://github.com/ska42)
 
 ### Installing
