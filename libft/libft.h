@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jvigneau <jvigneau@student.42quebec>       +#+  +:+       +#+        */
+/*   By: jvigneau <jvigneau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/18 09:35:09 by jvigneau          #+#    #+#             */
-/*   Updated: 2021/10/07 13:25:29 by jvigneau         ###   ########.fr       */
+/*   Updated: 2022/05/20 13:11:13 by jvigneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@
 # include <stdio.h>
 # include <unistd.h>
 # include <limits.h>
+# include "./get_next_line.h"
 
 typedef struct s_list
 {
