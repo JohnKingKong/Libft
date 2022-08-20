@@ -1,192 +1,191 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   split_with_quotes.c                                :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: jvigneau <jvigneau@student.42quebec>       +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/19 21:13:27 by jvigneau          #+#    #+#             */
-/*   Updated: 2022/08/20 01:15:20 by jvigneau         ###   ########          */
-/*                                                                            */
-/* ************************************************************************** */
+#include	"libft.h"
 
-#include "libft.h"
-
-#define count_tkns_ptr index->j
-
-void	init_index(t_indexes *index)
+int	skip(const char *s, int i, char c)
 {
-	index->i = 0;
-	index->j = 0;
-	index->k = 0;
-	index->l = 0;
+	i++;
+	while (s[i] != c)
+		i++;
+	return (i);
+}
+
+void	ft_matrix_free(char **matrix)
+{
+	int	i;
+
+	i = 0;
+	if (matrix == NULL)
+		return ;
+	while (*(matrix + i))
+	{
+		free(*(matrix + i));
+		i++;
+	}
+	free(matrix);
 	return ;
 }
 
-int	check_closing_quotes(char *string, char quote, t_indexes *index)
+size_t	check_closed(char const *s, int i)
 {
-	index->k = index->i + 1;
-	while (string[index->k])
-	{
-		if (string[index->k] == quote && string[index->k + 1])
-		{
-			index->i = index->k;
-			return (0);
-		}
-		index->k++;
-		if (string[index->k + 1] == '\'' || string[index->k + 1] == '"')
-			index->k += 2;
-	}
-	return (1);
-}
+	int	j;
 
-int	check_closing_quotes_int(char *string, char quote, int i)
-{
-	int	position;
-
-	position = i + 1;
-	while (string[position])
+	j = i + 1;
+	while (s[j])
 	{
-		if (string[position] == quote && string[position + 1])
-			return (0);
-		position++;
-		if (string[position + 1] == '\'' || string[position + 1] == '"')
-			position += 2;
-	}
-	return (1);
-}
-
-int	check_after_quotes(char *string, t_indexes *index, char separator)
-{
-	if (string[index->i] == separator)
-	{
-		return (1);
+		if (s[j] == s[i])
+			return (j);
+		j++;
 	}
 	return (0);
 }
 
-int	count_nb_arrays(char *string, char separator, t_indexes *index)
+size_t	token_count(char const *s, char c)
 {
-	while (string[index->i])
+	size_t	i;
+	size_t	nb;
+	size_t	j;
+
+	i = 0;
+	nb = 0;
+	while (s[i])
 	{
-		if ((string[index->i] == '"' || string[index->i] == '\'')
-			&& check_closing_quotes(string, string[index->i], index) == 0)
+		while (s[i] == c && s[i])
+			i++;
+		if (s[i] != c && s[i])
 		{
-			if (check_after_quotes(string, index, separator) == 1)
+			if (s[i] == '\'')
 			{
-				printf("jashkhkajsh %c\n", string[index->i]);
-				count_tkns_ptr++;
+				j = check_closed(s, i);
+				if (j > 0)
+					i = j;
 			}
-			index->i++;
+			else if (s[i] == '\"')
+			{
+				j = check_closed(s, i);
+				if (j > 0)
+					i = j;
+			}
+			nb++;
+			while (s[i] != c && s[i])
+				i++;
 		}
-		else if(index->i == 0 && string[index->i] != separator)
-			count_tkns_ptr++;
-		else if(string[index->i] != separator && string[index->i - 1] == separator)
-			count_tkns_ptr++;
-		index->i++;
 	}
-	return (count_tkns_ptr);
+	printf("nb = %lu\n", nb);
+	return (nb);
 }
 
-
-char	*fill_quotes(char *string, t_indexes *index, int i, char quote, char separator)
+char const	*quote_alloc(char const *s, char **matrix, char c, char quote)
 {
-	int		start;
-	int		temp;
-	int		end;
-	char	*retour;
+	int	len_ptr;
 
-	temp = i;
-	start = temp;
-	while (string[temp] && string[temp + 1] != quote)
+	len_ptr = 0;
+	while (s[len_ptr + 1] != quote)
+		len_ptr++;
+	while (s[len_ptr + 1] && s[len_ptr + 1] != c)
+		len_ptr++;
+	*matrix = ft_substr(s, 0, (len_ptr + 2));
+	s = s + len_ptr;
+	s++;
+	s++;
+	while (*s == c)
+		s++;
+	return (s);
+}
+
+int	is_not_quote(const char *s, char c, int i, char **matrix)
+{
+	int	len_ptr;
+
+	len_ptr = 0;
+	while (s[len_ptr] != c && s[len_ptr])
+		len_ptr++;
+	matrix[i] = ft_substr(s, 0, len_ptr);
+	if (matrix[i] == NULL)
+		ft_matrix_free(matrix);
+	return (len_ptr);
+}
+
+void	letter_alloc(char **matrix, char const *s, char c, size_t nb_token)
+{
+	size_t	len_ptr;
+	size_t	i;
+	size_t	j;
+
+	i = 0;
+	while (i < nb_token)
 	{
-		temp++;
-		if (string[temp + 1] == '\'' || string[temp + 1] == '"')
-			temp += 2;
+		if (*s == c)
+		{
+			while (*++s == c)
+				;
+		}
+		if (*s != c && *s != '\'' && *s != '\"')
+		{
+			len_ptr = is_not_quote(s, c, i, matrix);
+			s = s + len_ptr;
+		}
+		if (*s == '\'')
+		{
+			j = check_closed(s, 0);
+			if (j > 0)
+				s = quote_alloc(s, &matrix[i], c, '\'')+1;
+			else
+			{
+				len_ptr = is_not_quote(s, c, i, matrix);
+				s = s + len_ptr;
+			}
+		}
+		else if (*s == '\"')
+		{
+			j = check_closed(s, 0);
+			if (j > 0)
+				s = quote_alloc(s, &matrix[i], c, '\"');
+			else
+			{
+				len_ptr = is_not_quote(s, c, i, matrix);
+				s = s + len_ptr;
+			}
+		}
+		i++;
 	}
-	end = temp + 1;
-	index->l = temp + 2;
-	retour = calloc((end - start + 1), sizeof(char));
-	if (!retour)
+	matrix[i] = NULL;
+}
+
+char	**ft_split2(char const *s, char c)
+{
+	char	**matrix;
+	size_t	nb_token;
+
+	if (!s)
 		return (NULL);
-	temp = 0;
-	while (start <= end)
-	{
-		retour[temp] = string[start];
-		temp++;
-		start++;
-	}
-	return (retour);
-}
-
-char	*fill_no_quotes(char *string, t_indexes *index, int i, char separator)
-{
-	int		start;
-	int		temp;
-	int		end;
-	char	*retour;
-
-	temp = i;
-	while (string[temp] && string[temp] == separator)
-		temp++;
-	start = temp;
-	while (string[temp] && string[temp + 1] != separator)
-		temp++;
-	end = temp;
-	index->l = temp + 2;
-	retour = calloc((end - start + 1), sizeof(char));
-	if (!retour)
+	nb_token = token_count(s, c);
+	matrix = (char **)malloc(((sizeof(char *)) * (nb_token + 1)));
+	if (!matrix)
 		return (NULL);
-	temp = 0;
-	while (start <= end)
-	{
-		retour[temp] = string[start];
-		temp++;
-		start++;
-	}
-	return (retour);
-}
-char	*fill_array(char *string, t_indexes *index, char separator)
-{
-	int		temp;
-	char	quote;
+	letter_alloc(matrix, s, c, nb_token);
 
-	temp = index->l;
-	quote = string[temp];
-	if ((string[temp] == '"' || string[temp] == '\'')
-		&& check_closing_quotes_int(string, quote, temp) == 0)
-			return(fill_quotes(string, index, temp, quote, separator));
-	return(fill_no_quotes(string, index, temp, separator));
-}
-
-char	**split_with_quotes(char *string, char separator)
-{
-	t_indexes	index;
-	int			count_tkns;
-
-	char		**retour;
-
-	init_index(&index);
-	count_tkns = count_nb_arrays(string, separator, &index);
-	retour = calloc(count_tkns, sizeof(char **) + 1);
-	if (!retour)
-		return (NULL);
-	init_index(&index);
-	while(index.i < count_tkns)
-	{
-		retour[index.i] = fill_array(string, &index, separator);
-		index.i++;
-	}
-	retour[index.i] = NULL;
-	return (retour);
+	return (matrix);
 }
 
 int main(int argc, char const *argv[])
 {
 	char **retour;
+	char *line;
 
-	retour = split_with_quotes("un \"ca cest deux\"\"ca cest pas trois\" 'cinq over here' \"\"\" six ca cest 'quatre' homie", ' ');
-	for(int i = 0; retour[i]; i++)
-		printf("retour %d = %s\n", i, retour[i]);
+	// while (1)
+	{
+		line = calloc(10000, sizeof(char));
+		read(1, line, 100000);
+		retour = ft_split2(line, ' ');
+		for(int i = 0; retour[i]; i++)
+			printf("retour %d = %s\n", i, retour[i]);
+		free(line);
+	}
+	int k = 0;
+	while (retour[k])
+	{
+		free(retour[k]);
+		k++;
+	}
+	free(retour);
 	return 0;
 }
