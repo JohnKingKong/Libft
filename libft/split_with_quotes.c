@@ -90,7 +90,7 @@ char const	*quote_alloc(char const *s, char **matrix, char c, char quote)
 		len_ptr++;
 	while (s[len_ptr + 1] && s[len_ptr + 1] != c)
 		len_ptr++;
-	*matrix = ft_substr(s, 0, (len_ptr + 2));
+	*matrix = ft_substr(s, 0, (len_ptr + 1));
 	s = s + len_ptr;
 	s++;
 	s++;
@@ -126,13 +126,11 @@ int	quote_inside(const char *s, char c)
 	{
 		if ((s[i] == '\'' || s[i] == '"') && closed == false)
 		{
-			printf("string %c\n", s[i -1]);
 			closed = true;
 			quote = s[i];
 		}
 		else if (closed == true && s[i] == quote)
 		{
-			printf("closed %c\n", s[i-1]);
 			return (0);
 		}
 		i++;
@@ -160,7 +158,6 @@ void	letter_alloc(char **matrix, char const *s, char c, size_t nb_token)
 		}
 		if (*s != c && *s != '\'' && *s != '\"' && quote_inside(s, c) != 0)
 		{
-			printf("kjsadgjkasdhjk\n");
 			len_ptr = is_not_quote(s, c, i, matrix);
 			s = s + len_ptr;
 		}
@@ -209,10 +206,17 @@ char	**ft_split2(char const *s, char c)
 		return (NULL);
 	letter_alloc(matrix, s, c, nb_token);
 	//DEBUG
-	int i = 0;
+		int i = 0;
+		 int j = 0;
 	while (matrix[i])
 	{
-		printf("matrix = %s\n", matrix[i++]);
+		printf("matrix = %s\n", matrix[i]);
+		while (matrix[i][j])
+		{
+			j++;
+		}
+		j = 0;
+		i++;
 	}
 	return (matrix);
 }

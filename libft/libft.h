@@ -23,6 +23,7 @@
 # include <stdio.h>
 # include <unistd.h>
 # include <limits.h>
+# include <stdbool.h>
 # include "./get_next_line.h"
 
 typedef struct s_list
@@ -85,5 +86,6 @@ void	ft_lstadd_back(t_list **alst, t_list *new);
 void	ft_lstdelone(t_list *lst, void (*del)(void *));
 void	ft_lstclear(t_list **lst, void (*del)(void *));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
+void	init_index(t_indexes *index);
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 #endif
