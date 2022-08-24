@@ -1,12 +1,5 @@
 #include	"libft.h"
-
-int	skip(const char *s, int i, char c)
-{
-	i++;
-	while (s[i] != c)
-		i++;
-	return (i);
-}
+#include 	<stdbool.h>
 
 void	ft_matrix_free(char **matrix)
 {
@@ -56,29 +49,44 @@ size_t	token_count(char const *s, char c)
 			{
 				j = check_closed(s, i);
 				if (j > 0)
-					i = j;
+					i = j + 1;
+				else
+				{
+					i++;
+					continue ;
+				}
 			}
 			else if (s[i] == '\"')
 			{
 				j = check_closed(s, i);
 				if (j > 0)
-					i = j;
+					i = j + 1;
+				else
+				{
+					i++;
+					continue ;
+				}
 			}
-			nb++;
-			while (s[i] != c && s[i])
+			while (s[i] != c && s[i] && s[i] != '\'' && s[i] != '"')
 				i++;
+			if (s[i] != '\'' && s[i] != '"')
+				nb++;
 		}
 	}
-	printf("nb = %lu\n", nb);
 	return (nb);
 }
 
 char const	*quote_alloc(char const *s, char **matrix, char c, char quote)
 {
 	int	len_ptr;
+	int	start;
 
 	len_ptr = 0;
-	while (s[len_ptr + 1] != quote)
+	start = 0;
+	while (s[start] != quote)
+		start++;
+	len_ptr = start;
+	while (s[len_ptr+1] && s[len_ptr + 1] != quote)
 		len_ptr++;
 	while (s[len_ptr + 1] && s[len_ptr + 1] != c)
 		len_ptr++;
@@ -104,11 +112,43 @@ int	is_not_quote(const char *s, char c, int i, char **matrix)
 	return (len_ptr);
 }
 
+int	quote_inside(const char *s, char c)
+{
+	int		i;
+	char	quote;
+	bool	closed;
+
+	closed = false;
+	i = 0;
+	if (c)
+		i = 0;
+	while (s[i])
+	{
+		if ((s[i] == '\'' || s[i] == '"') && closed == false)
+		{
+			printf("string %c\n", s[i -1]);
+			closed = true;
+			quote = s[i];
+		}
+		else if (closed == true && s[i] == quote)
+		{
+			printf("closed %c\n", s[i-1]);
+			return (0);
+		}
+		i++;
+	}
+	if (closed == false)
+		return (1);
+	else
+		return (0);
+}
+
 void	letter_alloc(char **matrix, char const *s, char c, size_t nb_token)
 {
 	size_t	len_ptr;
 	size_t	i;
 	size_t	j;
+	char	quote;
 
 	i = 0;
 	while (i < nb_token)
@@ -118,16 +158,22 @@ void	letter_alloc(char **matrix, char const *s, char c, size_t nb_token)
 			while (*++s == c)
 				;
 		}
-		if (*s != c && *s != '\'' && *s != '\"')
+		if (*s != c && *s != '\'' && *s != '\"' && quote_inside(s, c) != 0)
 		{
+			printf("kjsadgjkasdhjk\n");
 			len_ptr = is_not_quote(s, c, i, matrix);
 			s = s + len_ptr;
+		}
+		else if (*s != c && *s != '\'' && *s != '\"' && quote_inside(s, c) == 0)
+		{
+			quote = '"';
+			s = quote_alloc(s, &matrix[i], c, quote)+1;
 		}
 		if (*s == '\'')
 		{
 			j = check_closed(s, 0);
 			if (j > 0)
-				s = quote_alloc(s, &matrix[i], c, '\'')+1;
+				s = quote_alloc(s, &matrix[i], c, '\'');
 			else
 			{
 				len_ptr = is_not_quote(s, c, i, matrix);
@@ -158,15 +204,20 @@ char	**ft_split2(char const *s, char c)
 	if (!s)
 		return (NULL);
 	nb_token = token_count(s, c);
-	matrix = (char **)malloc(((sizeof(char *)) * (nb_token + 1)));
+	matrix = (char **)calloc(sizeof(char *), nb_token + 1);
 	if (!matrix)
 		return (NULL);
 	letter_alloc(matrix, s, c, nb_token);
-
+	//DEBUG
+	int i = 0;
+	while (matrix[i])
+	{
+		printf("matrix = %s\n", matrix[i++]);
+	}
 	return (matrix);
 }
 
-int main(int argc, char const *argv[])
+/*int main(int argc, char const *argv[])
 {
 	char **retour;
 	char *line;
@@ -188,4 +239,4 @@ int main(int argc, char const *argv[])
 	}
 	free(retour);
 	return 0;
-}
+}*/
