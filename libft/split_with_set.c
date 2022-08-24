@@ -20,7 +20,10 @@ int	is_in_set(char	*string, char *set, t_indexes *index)
 		if (string[index->j + 1] != '\0')
 			index->k += 2;
 		else if (index->j > 0)
+		{
+			printf("stringggggggggggggg char %c\n", string[index->j]);
 			index->k++;
+		}
 		return (0);
 	}
 	return (1);
@@ -120,6 +123,7 @@ char	**split_it(char **matrix_in, int nb_tkns, char *set)
 	char		**matrix_out;
 	char		delim;
 	int			closure;
+	bool		quotes;
 	t_indexes	index;
 
 	init_index(&index);
@@ -130,41 +134,25 @@ char	**split_it(char **matrix_in, int nb_tkns, char *set)
 		matrix_out[index.k] = calloc_to_delim(matrix_in[index.i], set);
 		while (matrix_in[index.i][index.j])
 		{
-			if (ft_strchr(set, matrix_in[index.i][index.j]))
+			if (ft_strchr(set, matrix_in[index.i][index.j]) && quotes == false)
 			{
+				if (index.j != 0)
+				{
+					index.k++;
+					index.l = 0;
+					matrix_out[index.k] = calloc_to_delim(matrix_in[index.i]+index.j, set);
+				}
+				matrix_out[index.k][index.l] = matrix_in[index.i][index.j];
+				index.j++;
 				printf("ahhhhhhhh %c%c%c\n", matrix_in[index.i][index.j-1], matrix_in[index.i][index.j], matrix_in[index.i][index.j+1]);
+				if (matrix_in[index.i][index.j] == '\0')
+					break ;
+				index.k++;
+				index.l = 0;
+				matrix_out[index.k] = calloc_to_delim(matrix_in[index.i], set);
 			}
-			// if (split_quotes(matrix_in[index.i], &index, &matrix_out, set) == 1)
-			// 	break ;
-			// if (ft_strchr(set, matrix_in[index.i][index.j]))
-			// {
-			// 	// is_a_delim()
-			// 	delim = matrix_in[index.i][index.j];
-			// 	printf(" %c is a delim\n", matrix_in[index.i][index.j]);
-			// 	index.k++;
-			// 	index.l = 0;
-			// 	matrix_out[index.k] = calloc_to_delim(matrix_in[index.i], set);
-			// 	matrix_out[index.k][index.l] = delim;
-			// 	index.j++;
-			// 	if (matrix_in[index.i][index.j] == delim)
-			// 	{
-			// 		index.l++;
-			// 		index.j++;
-			// 		matrix_out[index.k][index.l] = delim;
-			// 	}
-			// 	index.k++;
-			// 	index.l = 0;
-			// 	if (matrix_in[index.i][index.j] == '\0')
-			// 	{
-			// 		matrix_out[index.k] = calloc_to_delim(matrix_in[index.i], set);
-			// 		printf("adkjhaasjk\n");
-			// 		break ;
-			// 	}
-			// 	else
-			// 	{
-			// 		matrix_out[index.k] = calloc_to_delim(matrix_in[index.i], set);
-			// 	}
-			// }
+			else if ((matrix_in[index.i][index.j] == '\'' || matrix_in[index.i][index.j] == '"') && quotes == false && check_for_closure(matrix_in[index.i], index.j, matrix_in[index.i][index.j]) > 0)
+				quotes = true;
 			matrix_out[index.k][index.l] = matrix_in[index.i][index.j];
 			index.j++;
 			index.l++;
@@ -172,6 +160,7 @@ char	**split_it(char **matrix_in, int nb_tkns, char *set)
 		index.j = 0;
 		index.i++;
 		index.k++;
+		quotes = false;
 		index.l = 0;
 	}
 	int i = 0, j = 0;
@@ -209,7 +198,7 @@ int main(int argc, char const *argv[])
 	char	**vrairet;
 	// while (1)
 	{
-		line = "un > trois>cinq < allo\0";
+		line = "\"allo hoo<mie\"un > trois>cinq < allo|>< | \0";
 		retour = ft_split2(line, ' ');
 		vrairet=split_with_set(retour, "<|>");
 		// for(int i = 0; vrairet[i]; i++)
