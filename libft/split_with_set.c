@@ -17,13 +17,8 @@ int	is_in_set(char	*string, char *set, t_indexes *index)
 {
 	if (ft_strchr(set, string[index->j]))
 	{
-		if (string[index->j + 1] != '\0')
-			index->k += 2;
-		else if (index->j > 0)
-		{
 			printf("stringggggggggggggg char %c\n", string[index->j]);
 			index->k++;
-		}
 		return (0);
 	}
 	return (1);
@@ -38,7 +33,9 @@ void	is_a_quote(char *string, t_indexes *index)
 		|| string[index->j] == '\'')
 	{
 		quote = string[index->j];
+		printf("avant quote closed %d\n", index->j);
 		quotes_closed = check_for_closure(string, index->j, quote);
+		printf("quote closed = %d\n", quotes_closed);
 		if (quotes_closed > 0)
 			index->j = quotes_closed;
 	}
@@ -51,16 +48,19 @@ int	cnt_tkn_set(char **matrix_in, char *set)
 	init_index(&index);
 	while (matrix_in[index.i])
 	{
+		index.k++;
 		while (matrix_in[index.i][index.j])
 		{
 			is_a_quote(matrix_in[index.i], &index);
 			if (is_in_set(matrix_in[index.i], set, &index) == 0)
-				break ;
+			{
+				index.j++;
+				continue ;
+			}
 			index.j++;
 		}
 		index.j = 0;
 		index.i++;
-		index.k++;
 	}
 	return (index.k);
 }
@@ -87,6 +87,7 @@ char	*calloc_to_delim(char *string, char *set)
 	}
 	if (i == 0)
 		i++;
+	printf("iiiiiiiiiii %d\n", i);
 	retour = calloc(i + 1, sizeof(char));
 	return (retour);
 }
@@ -198,7 +199,7 @@ int main(int argc, char const *argv[])
 	char	**vrairet;
 	// while (1)
 	{
-		line = "\"allo hoo<mie\"un > trois>cinq < allo|>< | \0";
+		line = "\"allo hoo<mie\"un > trois>cinq < allo|>< \"poil\" dsasdada<><> | \0";
 		retour = ft_split2(line, ' ');
 		vrairet=split_with_set(retour, "<|>");
 		// for(int i = 0; vrairet[i]; i++)
