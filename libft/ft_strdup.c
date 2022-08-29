@@ -6,7 +6,7 @@
 /*   By: jvigneau <jvigneau@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/21 09:51:15 by jvigneau          #+#    #+#             */
-/*   Updated: 2022/08/29 17:36:12 by jvigneau         ###   ########          */
+/*   Updated: 2022/08/29 17:47:27 by jvigneau         ###   ########          */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,13 @@
 
 #include "libft.h"
 
-char	*ft_strdup(const char *s1, int size)
+char	*ft_strdup(const char *s1)
 {
 	char	*final;
 
-	final = malloc(size + 1);
+	final = malloc((ft_strlen(s1) + 1));
 	if (!final)
 		return (NULL);
-	ft_bzero(final, size + 1);
-	return (ft_memcpy(final, s1, size));
+	ft_bzero(final, (ft_strlen(s1) + 1));
+	return (ft_memcpy(final, s1, (ft_strlen(s1))));
 }
