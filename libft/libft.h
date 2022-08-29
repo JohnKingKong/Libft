@@ -76,6 +76,7 @@ char	*ft_strtrim(const char *s1, const char *set);
 char	**ft_split(const char *s, char c);
 char	**ft_split2(const char *s, char c);
 char	**split_with_quotes(char *string, char separator);
+char 	**split_set_quotes(char *s, char *set);
 char	*ft_itoa(int n);
 char	*ft_strmapi(const char *s, char (*f)(unsigned int, char));
 t_list	*ft_lstnew(void *content);

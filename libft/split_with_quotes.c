@@ -208,7 +208,6 @@ void	letter_alloc(char **matrix, char const *s, char c, size_t nb_token)
 	size_t	i;
 	size_t	j;
 	char	quote;
-	int		k;
 
 	i = 0;
 	while (i < nb_token)
@@ -297,7 +296,7 @@ int main(int argc, char const *argv[])
 
 	// while (1)
 	{
-		line = "un\"un      un\" deux \"trois\"<cinq'cinq six\"\0";
+		line = "         un\"un      un\" deux \"trois\"<cinq'cinq six\"\0";
 		retour = ft_split2(line, ' ');
 		for(int i = 0; retour[i]; i++)
 			printf("retour %d = %s\n", i, retour[i]);
