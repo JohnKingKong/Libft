@@ -35,10 +35,8 @@ char	**ft_realloc_list(char **matrix, int size)
 int	check_if_closed(char *s)
 {
 	int		i;
-	char	quote;
 
 	i = 1;
-	quote = *s;
 	while (s[i])
 	{
 		if (s[i] == *s)
@@ -51,48 +49,49 @@ int	check_if_closed(char *s)
 char **split_set_quotes(char *s, char *set)
 {
 	char	**matrix;
-	char	quote;
-	int		i, j, k;
+	int		i;
+	int		j;
 
-	i = 0, j = 0, k = 0;
+	i = 0;
+	j = 0;
 	matrix = calloc(1, sizeof(char *));
 	while (*s)
 	{
 		if (*s == '"' || *s == '\'')
 		{
-			k = check_if_closed(s);
-			if (k > 0)
+			j = check_if_closed(s);
+			if (j > 0)
 			{
-				matrix[j] = ft_realloc(k, matrix[j], s);
-				s += k;
+				matrix[i] = ft_realloc(j, matrix[i], s);
+				s += j;
 			}
 		}
 		if (ft_strchr(set, *s))
 		{
-			if (matrix[j] != NULL)
+			if (matrix[i] != NULL)
 			{
-				matrix = ft_realloc_list(matrix, j + 1);
-				j++;
+				matrix = ft_realloc_list(matrix, i + 1);
+				i++;
 			}
 			if ((*s == '<' || *s == '>') && s[1]  == *s)
 			{
-				matrix[j] = ft_realloc(2, matrix[j], s);
+				matrix[i] = ft_realloc(2, matrix[i], s);
 				s += 2;
 				if (*s != '\0' && *s != ' ')
 				{
-					matrix = ft_realloc_list(matrix, j + 1);
-					j++;
+					matrix = ft_realloc_list(matrix, i + 1);
+					i++;
 				}
 				continue ;
 			}
 			else
 			{
-				matrix[j] = ft_realloc(1, matrix[j], s);
+				matrix[i] = ft_realloc(1, matrix[i], s);
 				s++;
 				if (*s != '\0' && *s != ' ')
 				{
-					matrix = ft_realloc_list(matrix, j + 1);
-					j++;
+					matrix = ft_realloc_list(matrix, i + 1);
+					i++;
 				}
 				continue ;
 			}
@@ -103,11 +102,11 @@ char **split_set_quotes(char *s, char *set)
 				s++;
 			if (*s == '\0')
 				break ;
-			matrix = ft_realloc_list(matrix, j + 1);
-			j++;
+			matrix = ft_realloc_list(matrix, i + 1);
+			i++;
 			continue ;
 		}
-		matrix[j] = ft_realloc(1, matrix[j], s);
+		matrix[i] = ft_realloc(1, matrix[i], s);
 		s++;
 	}
 	for(int p =0;matrix[p];p++)
@@ -115,8 +114,8 @@ char **split_set_quotes(char *s, char *set)
 	return matrix;
 }
 
-int main(int argc, char const *argv[])
-{
-	split_set_quotes("\"echo\" 'allo'<<> ds\"dasjdk'sa", "<>|");
-	return 0;
-}
+// int main(int argc, char const *argv[])
+// {
+// 	split_set_quotes("\"echo\" 'allo'<<> ds\"dasidk'sa", "<>|");
+// 	return 0;
+// }
