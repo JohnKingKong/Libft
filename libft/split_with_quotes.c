@@ -236,6 +236,7 @@ char	**ft_split2(char const *s, char c)
 	return (matrix);
 }
 
+<<<<<<< HEAD
 int main(int argc, char const *argv[])
 {
 	char **retour;
@@ -258,3 +259,26 @@ int main(int argc, char const *argv[])
 	free(retour);
 	return 0;
 }
+=======
+// int main(int argc, char const *argv[])
+// {
+// 	char **retour;
+// 	char *line;
+
+// 	// while (1)
+// 	{
+// 		line = "         un\"un      un\" deux \"trois\"<cinq'cinq six\"\0";
+// 		retour = ft_split2(line, ' ');
+// 		for(int i = 0; retour[i]; i++)
+// 			printf("retour %d = %s\n", i, retour[i]);
+// 	}
+// 	int k = 0;
+// 	while (retour[k])
+// 	{
+// 		free(retour[k]);
+// 		k++;
+// 	}
+// 	free(retour);
+// 	return 0;
+// }
+>>>>>>> 179d902898c8675832485bb95ecd4cb7657bba16
