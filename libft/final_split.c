@@ -1,83 +1,92 @@
 #include "libft.h"
 
-int	check_close(char *s, char quote, int i)
+int	check_close(char *s, int i)
 {
-	int	j;
+	char	quote;
+	int		start;
 
-	j = i + 1;
-	while (s[j] && s[j] != quote)
-		j++;
-	if (s[j] != quote)
-		return (0);
-	return (j);
+	quote = s[i];
+	start = i + 1;
+	while (s[start])
+	{
+		if (s[start] == quote)
+			return (start);
+		start++;
+	}
+	return (0);
 }
 
-int	cnt_words(char *s, char *set, char c)
+int	cnt_tkns(char *s, char c, char *set)
 {
-	int		i;
-	int		tkns;
-	int		j;
-	char	quote;
+	int	i;
+	int	tkns;
+	int	j;
 
 	i = 0;
 	tkns = 0;
+	while (s[i] == c)
+		i++;
 	while (s[i])
 	{
-		if (i == 0 && s[i] != c)
+		if (s[i] == '"' || s[i] == '\'')
 		{
-			printf("oooooo\n");
-			tkns++;
-		}
-		else if (s[i] == '"' || s[i] == '\'')
-		{
-			quote = s[i];
-			j = check_close(s, quote, i);
+			j = check_close(s, i);
 			if (j > 0)
+			{
 				i = j;
-		}
-		else if (ft_strchr(set, s[i]))
-		{
-			if (s[i + 1] && s[i + 1] == s[i])
+				if (s[i] == '\0' || s[i] == c)
+					tkns++;
+			}
+			else
+			{
 				i++;
+				if (s[i] == '\0' || s[i] == c)
+					tkns++;
+				continue ;
+			}
+		}
+		if (s[i + 1] == '\0' && s[i - 1] != c)
+		{
 			tkns++;
-			printf("aaaaa\n");
 			i++;
 			continue ;
 		}
-		else if (s[i] == c)
+		else if (s[i + 1] == c && s[i] != c)
 		{
-			while (s[i + 1] == c)
-				i++;
-			if (s[i - 1] && s[i + 1] != '\0')
-			{
-				printf("ahhhhh\n");
-				tkns++;
-			}
+			printf("oooo\n");
+			i++;
+			tkns++;
+			continue ;
+		}
+		if (s[i] == c)
+		{
+			i++;
+			continue ;
 		}
 		i++;
-		printf("her char %c\n", s[i]);
 	}
-	printf("tkns = %d\n", tkns);
 	return (tkns);
 }
 
-char	**split_it(char *s, char *set, char c)
+char	**split_it(char *s, char c, char *set)
 {
-	char		**matrix_out;
 	t_indexes	i;
-	int			nb_tkns;
+	char		**matrix;
+	int			tkns;
 
-	matrix_out = NULL;
 	init_index(&i);
-	nb_tkns = cnt_words(s, set, c);
-	return (matrix_out);
+	tkns = 0;
+	matrix = NULL;
+	tkns = cnt_tkns(s, c, set);
+	printf("tkns = %d\n", tkns);
+	return (matrix);
 }
 
 int main(int argc, char const *argv[])
 {
 	char **retour;
 
-	char * line = "zero une<deux         ";
-	retour = split_it(line, "<|>", ' ');
+	retour = NULL;
+	split_it("''    '   dsajhgsdhja \0", ' ', "<|>");
 	return 0;
 }

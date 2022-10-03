@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_for.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jvigneau <jvigneau@student.42quebec>       +#+  +:+       +#+        */
+/*   By: jvigneau <jvigneau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/11 11:53:00 by jvigneau          #+#    #+#             */
-/*   Updated: 2021/10/11 11:57:26 by jvigneau         ###   ########.fr       */
+/*   Updated: 2022/09/03 14:04:22 by jvigneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,4 +14,6 @@
 
 #include "libft.h"
 
+for (int i=0;i<10;i++);
 
+void	(*func())
